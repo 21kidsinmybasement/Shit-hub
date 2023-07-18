@@ -1,115 +1,231 @@
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+  local Window = OrionLib:MakeWindow({Name = "Shit Hub", HidePremium = false,IntroText = "Shit Hub", SaveConfig = true, ConfigFolder = "Shit Hub"})
 
-local Window = Rayfield:CreateWindow({
-   Name = "🔥 Shit Hub 🔥",
-   LoadingTitle = "Hello dumbass:))",
-   LoadingSubtitle = "by Huntigpre",
-   ConfigurationSaving = {
-      Enabled = true,
-      FolderName = nil, -- Create a custom folder for your hub/game
-      FileName = "🔥 Shit Hub 🔥"
-   },
-   Discord = {
-      Enabled = true,
-      Invite = "SHITHUB", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
-      RememberJoins = false -- Set this to false to make them join the discord every time they load it up
-   },
-   KeySystem = true, -- Set this to true to use our key system
-   KeySettings = {
-      Title = "🔥 Shit Hub 🔥",
-      Subtitle = "Hello spoiled ass",
-      Note = "Join my discord to get the key",
-      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
-      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-      GrabKeyFromSite = True, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = {"FIRSTKEY"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
-   }
+OrionLib:MakeNotification({
+	Name = "Huntigpre#6028",
+	Content = "Pls msg me in discord if theres an error",
+	Image = "rbxassetid://4483345998",
+	Time = 10
 })
 
-local MainTab = Window:CreateTab("🏠 Home", nil) -- Title, Image
-local MainSection = MainTab:CreateSection("My Main Script")
-
-Rayfield:Notify({
-   Title = "Sup Nigga",
-   Content = "Join my Discord for the key!",
-   Duration = 6.5,
-   Image = nil,
-   Actions = { -- Notification Buttons
-      Ignore = {
-         Name = "Okay!",
-         Callback = function()
-         print("The user tapped Okay!")
-      end
-   },
-},
+local TutTab = Window:MakeTab({
+	Name = "ChangeLog",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
 })
 
-Rayfield:Notify({
-   Title = "Sup Nigga",
-   Content = "Ty for using the script",
-   Duration = 6.5,
-   Image = nil,
-   Actions = { -- Notification Buttons
-      Ignore = {
-         Name = "Okay!",
-         Callback = function()
-         print("The user tapped Okay!")
-      end
-   },
-},
+local Section = TutTab:AddSection({
+    Name = "Whats New?"
 })
 
-local Button = MainTab:CreateButton({
-   Name = "Fly script",
-   Callback = function()
-loadstring(game:HttpGet("https://pastebin.com/raw/QGLvkvU7"))()
-   end,
+TutTab:AddParagraph("Update Log","Whats new? added keyboard script! added Admin Scripts! added Fe Scripts! added New script in Dahood Tab | More Scripts to come! | 7/18/23")
+
+TutTab:AddParagraph("-- Credits --","eightsix#3584")
+
+local TutTab = Window:MakeTab({
+	Name = "🏠 Home",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
 })
 
-local Button = MainTab:CreateButton({
-   Name = "Infinite yield",
-   Callback = function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-          end,
+local Section = TutTab:AddSection({
+	Name = "My normal scripts"
+})
+  
+
+TutTab:AddButton({
+	Name = "Keyboard Script",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()print("yamete")
+  	end    
 })
 
-      local Button = MainTab:CreateButton({
-   Name = "Vadrifts Script ( Bypass script  )",
-   Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/SXNTII/VadriftsHost/main/VadriftsAlternateVersion"))()()
-   end,
+TutTab:AddButton({
+	Name = "Bypass Script",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/SXNTII/VadriftsHost/main/VadriftsAlternateVersion"))()     print("yamete")
+  	end    
 })
 
-     local Button = MainTab:CreateButton({
-    Name = "Neko Script",
-    callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Tescalus/Pendulum-Hubs-Source/main/Pendulum%20Hub%20V5.lua"))()
-    end,
+TutTab:AddButton({
+	Name = "Fly Script",
+	Callback = function()loadstring(game:HttpGet("https://pastebin.com/raw/QGLvkvU7"))()     print("yamete")
+  	end    
 })
 
-local SettingsTab = Window:CreateTab("🎬 setting", nil) -- Title, Image
-local PlayerSection = SettingsTab:CreateSection("Setting")
+local TutTab = Window:MakeTab({
+	Name = "Admin",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+  })
 
-local Slider = SettingsTab:CreateSlider({
-   Name = "Walkspeed slider",
-   Range = {0, 300},
-   Increment = 1,
-   Suffix = "WS",
-   CurrentValue = 16,
-   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Value)
-game.Workspace.Players.LocalPlayer.Humanoid.Walkspeed = (Value)
-   end,
+local Section = TutTab:AddSection({
+	Name = "Admin commands"
 })
 
-local Slider = SettingsTab:CreateSlider({
-   Name = "Jump Height",
-   Range = {0, 300},
-   Increment = 1,
-   Suffix = "Jump Power",
-   CurrentValue = 16,
-   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Value)
-game.Workspace.Players.LocalPlayer.Humanoid.JumpPower = (Value)
-   end,
-}
+TutTab:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()     print("yamete")
+  	end    
+})
+
+TutTab:AddButton({
+	Name = "Nameless admin",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source"))();
+     print("yamete")
+  	end    
+})
+
+TutTab:AddButton({
+	Name = "Fates Admin",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))();   		print("yamete")
+  	end    
+})
+
+local TutTab = Window:MakeTab({
+	Name = "Games",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+  })
+
+local Section = TutTab:AddSection({
+	Name = "Different Games Scripts"
+})
+
+TutTab:AddParagraph("Dahood Scripts","⬇️")
+
+TutTab:AddButton({
+	Name = "SwagmodeV2",
+	Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SwagModeV002'))()   		print("yamete")
+  	end    
+})
+
+TutTab:AddButton({
+	Name = "Quer Nukerhub",
+	Callback = function()
+loadstring(game:HttpGet('https://pastebin.com/raw/dwtzAR3L'))()   		print("yamete")
+  	end    
+})
+
+TutTab:AddButton({
+	Name = "Nyula",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/nyulauh"))();		print("yamete")
+  	end    
+})
+
+local TutTab = Window:MakeTab({
+	Name = "Hubs",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local TutSection = TutTab:AddSection({
+	Name = "Op Many Hubs"
+})
+
+TutTab:AddButton({
+    Name = "ScriptHub",
+	Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/wKc5r6CM"))()
+		print("yamete")
+  	end    
+})
+
+TutTab:AddButton({
+    Name = "GigaChadHub",
+	Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/OWJBWKQLAISH/GigaChad-Hub/main/Gigachad%20Hub%20V4'))()
+		print("yamete")
+  	end    
+})
+	
+
+local TutTab = Window:MakeTab({
+    Name = "Fe Scripts",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local TutSection = TutTab:AddSection({
+    Name = "Op Fe scripts"
+})
+
+TutTab:AddParagraph("Requirements","You need keyboard for Spider man Script get the keyboard script")
+
+TutTab:AddButton({
+    Name = "Fe Spiderman Script",
+	Callback = function()
+loadstring(game:HttpGet(('https://pastebin.com/raw/2X0hKUgq'),true))()
+		print("yamete")
+  	end    
+})
+
+TutTab:AddParagraph("Requirements","Required hats = 10 https://web.roblox.com/catalog/63690008/Pal-Hair https://web.roblox.com/catalog/62234425/Brown-Hair https://web.roblox.com/catalog/48474313/Red-Roblox-Cap https://web.roblox.com/catalog/62724852/Chestnut-Bun https://web.roblox.com/catalog/451220849/Lavender-Updo https://web.roblox.com/catalog/48474294/ROBLOX-Girl-Hair https://www.roblox.com/catalog/376527115/Jade-Necklace-with-Shell-Pendant --Head https://web.roblox.com/catalog/9402600266/Sketched-white-and-magenta-5G-wings Sketched-white-and-magenta-5G-wings hats tutorial ➡️ https://youtu.be/-wVV7ktljis https://www.roblox.com/catalog/9661543986/Nike-Shoebox-Costume https://www.roblox.com/catalog/11220125365/Black-Adam-Hawkman-Wings Black Adam Wings hat tutorial ➡️ https://youtu.be/TbMhYBnJ_gU")
+
+TutTab:AddButton({
+    Name = "Fe Hacker Script",
+	Callback = function()
+loadstring(game:HttpGet(("https://paste.ee/r/A79oK"),true))()
+		print("yamete")
+  	end    
+})
+
+TutTab:AddButton({
+    Name = "Fe cctv script",
+	Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/CCTV%20Camera'))()
+		print("yamete")
+  	end    
+})
+
+TutTab:AddButton({
+    Name = "Fe Fling",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe./main/Fling%20GUI"))()
+		print("yamete")
+  	end    
+})
+	
+
+TutTab:AddButton({
+        Name = "Fe Chat Lag",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AnthonyIsntHere/anthonysrepository/main/scripts/ChatLag.lua"))()
+		print("yamete")
+  	end    
+})
+	
+
+TutTab:AddButton({
+	Name = "Fe Anti Chat Lag",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AnthonyIsntHere/anthonysrepository/main/scripts/AntiChatLag.lua"))()		print("yamete")
+  	end    
+})
+
+local PlayerTab = Window:MakeTab({
+	Name = "Settings",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local PlayerSection = PlayerTab:AddSection({
+	Name = "Movement"
+})
+
+PlayerTab:AddColorpicker({
+	Name = "Colorpicker",
+	Default = Color3.fromRGB(255, 0, 0),
+	Callback = function(Value)
+		print(Value)
+	end	  
+})
+
+TutTab:AddParagraph("Hey!!","Join my discord discord.gg/SHITHUB")
+
+ OrionLib:Init(
